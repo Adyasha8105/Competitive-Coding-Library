@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+//Find the unique numbers in linear time ( ALL the nos. are present twice except for two numbers which are present only once).
+
+int main()
+{
+    int n;
+    int a[1000005];
+    cin >> n;
+
+    int no;
+    int res = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> no;
+        a[i] = no;
+        res = res ^ no;
+    }
+    int temp = res;
+    int pos = 0;
+    while ((temp & 1) != 1)
+    {
+        pos++;
+        temp = temp >> 1;
+    }
+    int mask = (1 << pos);
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if ((a[i] & mask) > 0)
+        {
+            x = x ^ a[i];
+        }
+    }
+    y = res ^ x;
+    cout << min(x, y) << " " << max(x, y);
+}
