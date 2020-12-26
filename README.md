@@ -1,4 +1,4 @@
-# Competitive-Coding-Resources
+# Competitive Coding :)
 
 C++ code library contains useful algorithms for competitive programming purposes.
 
